@@ -70,7 +70,7 @@ const campaigns = [
 
 const CampaignList = () => {
     return (
-      <div className="p-6">
+      <div className="py-12">
       
         <div className="grid grid-cols-3 -m-2">
           {campaigns.map((campaign) => (

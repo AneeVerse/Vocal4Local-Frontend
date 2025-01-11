@@ -54,7 +54,7 @@ const NGOSlider = ({ direction }) => {
 
 const RegisteredNGOs = () => {
   return (
-    <div className="p-6">
+    <div className="py-12">
       <div className="mb-4 flex justify-between items-center">
       <h1 className="text-2xl font-bold mb-4">Registered NGOs</h1>
         <Link href="#" className="text-secondary">

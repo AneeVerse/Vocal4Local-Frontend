@@ -40,6 +40,7 @@ const BlogComponent = () => {
   const filteredBlogs = blogs.filter((blog) => blog.category === filter);
 
   return (
+    <div className='py-12'>
     <div className="p-8 bg-gray-50 shadow-lg rounded-xl">
       <h2 className="text-gray-700 text-3xl font-extrabold mb-6">Blogs</h2>
       
@@ -75,6 +76,7 @@ const BlogComponent = () => {
           </div>
         ))}
       </div>
+    </div>
     </div>
   );
 };

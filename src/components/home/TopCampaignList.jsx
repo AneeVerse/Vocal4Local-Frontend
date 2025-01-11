@@ -34,27 +34,17 @@ const campaigns = [
     goal: 40000,
     pledged: 30000,
   },
-  {
-    id: 4,
-    name: 'Campaign 4',
-    organization: 'Organization 4',
-    description: 'Description for Campaign 4',
-    imgUrl: '/images/home/slide4.webp',
-    progress: 100,
-    goal: 40000,
-    pledged: 40000,
-  },
   // Add more campaigns as needed
 ];
 
 const TopCampaignList = () => {
     return (
-      <div className="p-6">
+      <div className="py-12">
          <div className="mb-4 flex justify-between items-center">
         <h1 className="text-2xl font-bold mb-4">Top Campaigns</h1>
           <a href="#" className="text-secondary">View All</a>
         </div>
-        <div className="grid grid-cols-4 -m-2">
+        <div className="grid grid-cols-3 -m-2">
           {campaigns.map((campaign) => (
             <div key={campaign.id} className="p-2">
               <InitiativeCard campaign={campaign} />

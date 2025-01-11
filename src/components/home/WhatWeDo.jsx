@@ -11,6 +11,7 @@ const exampleCategories = [
 
 const WhatWeDo = () => {
   return (
+    <div className='py-12'>
     <div className="bg-gray-100 flex flex-col lg:flex-row justify-between gap-8 p-8 rounded-lg">
       {/* Left Section */}
       <div className="w-full border border-gray-400 border-dashed p-6 rounded-lg">
@@ -61,6 +62,7 @@ const WhatWeDo = () => {
           Temp text temp text temp text.
         </p>
       </div>
+    </div>
     </div>
   );
 };

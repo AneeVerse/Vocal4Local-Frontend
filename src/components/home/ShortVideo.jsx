@@ -46,7 +46,7 @@ const ShortVideo = () => {
   };
 
   return (
-    <section className="relative pb-16">
+    <section className="relative py-12">
       <div className="">
         {/* Header */}
         {/* <div className="text-left mb-8">
