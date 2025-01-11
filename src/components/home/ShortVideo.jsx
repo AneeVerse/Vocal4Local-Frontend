@@ -25,23 +25,20 @@ const ShortVideo = () => {
     setSelectedVideo(null);
   };
 
-  // Enhanced Scroll Function
+  // Updated Scroll Function for Proper Calculation
   const scroll = (direction) => {
     const container = scrollContainerRef.current;
     if (container) {
-      const scrollDistance = 300; // Total distance to scroll
-      const step = 10; // Smaller step for smoother scrolling
-      let remainingDistance = scrollDistance;
-
-      const scrollStep = () => {
-        if (remainingDistance <= 0) return; // Stop scrolling when distance is covered
-        const stepDistance = Math.min(step, remainingDistance);
-        container.scrollLeft += direction === "left" ? -stepDistance : stepDistance;
-        remainingDistance -= stepDistance;
-        requestAnimationFrame(scrollStep); // Smoothly transition frame by frame
-      };
-
-      scrollStep();
+      // Get the first item to calculate the width
+      const firstItem = container.querySelector(".testimonial-card");
+      if (firstItem) {
+        const cardWidth = firstItem.offsetWidth; // Get the width of one card
+        const scrollDistance = direction === "left" ? -cardWidth : cardWidth;
+        container.scrollBy({
+          left: scrollDistance,
+          behavior: "smooth",
+        });
+      }
     }
   };
 
@@ -49,12 +46,11 @@ const ShortVideo = () => {
     <section className="relative py-12">
       <div className="">
         {/* Header */}
-        {/* <div className="text-left mb-8">
+        <div className="text-left mb-8">
           <h1 className="mt-4 text-3xl font-extrabold text-gray-800">
-            See What Our <br className="sm:hidden" />
-            <span className="text-blue-500">Happy Clients</span> Say
+            Join the Journey
           </h1>
-        </div> */}
+        </div>
 
         {/* Video Carousel */}
         <div className="relative">
@@ -68,19 +64,17 @@ const ShortVideo = () => {
 
           <div
             ref={scrollContainerRef}
+            className="relative flex gap-6 overflow-x-auto scroll-smooth pb-4"
             style={{
               scrollbarWidth: "none",
               msOverflowStyle: "none",
               WebkitOverflowScrolling: "touch",
             }}
-            className={`relative flex gap-6 ${
-              testimonials.length === 1 ? "justify-center" : ""
-            } overflow-x-auto scroll-smooth pb-4`}
           >
             {testimonials.map((testimonial) => (
               <div
                 key={testimonial.id}
-                className="relative min-w-[220px] sm:min-w-[220px] h-[340px] hover:shadow-md rounded-lg overflow-hidden shadow-md transition-transform cursor-pointer"
+                className="relative min-w-[220px] sm:min-w-[220px] h-[340px] hover:shadow-md rounded-lg overflow-hidden shadow-md transition-transform cursor-pointer testimonial-card"
                 onClick={() => handleVideoClick(testimonial.videoUrl)}
               >
                 {/* Video */}

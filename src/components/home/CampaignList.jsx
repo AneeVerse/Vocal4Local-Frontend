@@ -1,6 +1,7 @@
 
 import React from 'react';
 import InitiativeCard from '../common/InitiativeCard';
+import Link from 'next/link';
 
 // Sample data array
 const campaigns = [
@@ -72,13 +73,21 @@ const CampaignList = () => {
     return (
       <div className="py-12">
       
-        <div className="grid grid-cols-3 -m-2">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 -m-2">
           {campaigns.map((campaign) => (
             <div key={campaign.id} className="p-2">
               <InitiativeCard campaign={campaign} />
             </div>
           ))}
         </div>
+
+        {/* view all button */}
+        <div className="text-center mt-8">
+          <Link href="#" className="bg-secondary px-12 py-[10px] rounded-md text-white font-medium">
+            See All
+          </Link>
+          <p className='font-bold text-secondary text-xl mt-4'>Total Cause 20</p>
+          </div>
        
       </div>
     );

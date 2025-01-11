@@ -8,6 +8,7 @@ import Image from "next/image";
 import CampaignList from "@/components/home/CampaignList";
 import ShortVideo from "@/components/home/ShortVideo";
 import BlogComponent from "@/components/home/BlogComponent";
+import ContactForm from "@/components/home/ContactForm";
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
         <CampaignList/>
         <ShortVideo/>
         <BlogComponent/>
+        <ContactForm/>
         </div>
       </Layout>
     </div>

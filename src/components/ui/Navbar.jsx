@@ -3,9 +3,12 @@ import { useState } from 'react';
 import { FiMenu, FiUser, FiX } from 'react-icons/fi';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -13,11 +16,11 @@ const Navbar = () => {
 
   // Define the menu list
   const menuItems = [
-    { name: 'About', href: '#' },
+    { name: 'Home', href: '/' },
+    { name: 'About Us', href: '/about' },
     { name: 'Services', href: '#' },
     { name: 'Pages', href: '#' },
-    { name: 'News', href: '#' },
-    { name: 'Contact Us', href: '#' },
+    { name: 'Contact Us', href: '/contact' },
   ];
 
   return (
@@ -32,13 +35,13 @@ const Navbar = () => {
 
         {/* Logo */}
         <div className="text-3xl font-bold">
-          LOGO
+          Local 4 Vocal
         </div>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden lg:flex items-center bg-white gap-8 px-8 py-2 rounded-full">
+        <nav className="hidden lg:flex items-center bg-white gap-5 px-8 py-2 rounded-full">
           {menuItems.map((item) => (
-            <Link key={item.name} href={item.href} className="text-secondary hover:text-black duration-300 hover:translate-y-[-2px]">
+            <Link key={item.name} href={item.href} className={` text-secondary border ${pathname == item.href ? " border-gray-200 " : " border-transparent "} hover:border-gray-200  rounded-full px-3 py-[5px] hover:text-black duration-300 hover:translate-y-[-2px]`}>
               {item.name}
             </Link>
           ))}
@@ -47,11 +50,11 @@ const Navbar = () => {
         {/* Profile Icon */}
 
         <div className="flex items-center gap-8">
-        <button className="bg-white hidden lg:block text-secondary px-8 py-2 rounded-full hover:text-black duration-300 hover:translate-y-[-2px]">
+        <button className="bg-white hidden lg:block text-secondary px-8 py-3 rounded-full hover:text-black duration-300 hover:translate-y-[-2px]">
             Button
           </button>
           
-          <FiUser className='text-2xl hover:translate-y-[-2px] duration-300 cursor-pointer' />
+          <FiUser className='text-2xl hover:translate-y-[-2px] duration-300  cursor-pointer' />
         </div>
       </div>
 
@@ -67,7 +70,7 @@ const Navbar = () => {
           <div className="flex justify-between items-center mb-8">
             {/* Logo in Sidebar */}
             <div className="text-3xl font-bold">
-              LOGO
+            Local 4 Vocal
             </div>
             {/* Close Button */}
             <button onClick={toggleMenu} className="text-white text-2xl">

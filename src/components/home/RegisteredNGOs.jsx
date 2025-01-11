@@ -5,21 +5,21 @@ import Link from 'next/link';
 
 // Sample data array
 const ngos = [
-  { id: 1, name: 'Register NGO 1', logo: 'https://via.placeholder.com/50' },
-  { id: 2, name: 'NGO 2', logo: 'https://via.placeholder.com/50' },
-  { id: 3, name: 'RegisterNGO 3', logo: 'https://via.placeholder.com/50' },
-  { id: 4, name: 'NRegister GO 4', logo: 'https://via.placeholder.com/50' },
-  { id: 5, name: 'NGO 5', logo: 'https://via.placeholder.com/50' },
-  { id: 6, name: 'Register NGO 6', logo: 'https://via.placeholder.com/50' },
-  { id: 7, name: 'Register NGO 7', logo: 'https://via.placeholder.com/50' },
-  { id: 8, name: 'Register NGO 8', logo: 'https://via.placeholder.com/50' },
-  { id: 9, name: 'NGO 9', logo: 'https://via.placeholder.com/50' },
-  { id: 10, name: 'NGO 10', logo: 'https://via.placeholder.com/50' },
+  { id: 1, name: 'Register NGO 1', logo: '/images/home/logo1.webp' },
+  { id: 2, name: 'NGO 2', logo: '/images/home/logo2.jpg' },
+  { id: 3, name: 'RegisterNGO 3', logo: '/images/home/logo3.png' },
+  { id: 4, name: 'NRegister GO 4', logo: '/images/home/logo4.jpg' },
+  { id: 5, name: 'NGO 5', logo: '/images/home/logo5.png' },
+  { id: 6, name: 'Register NGO 6', logo: '/images/home/logo6.webp' },
+  { id: 7, name: 'Register NGO 7', logo: '/images/home/logo7.jpg' },
+  { id: 8, name: 'Register NGO 8', logo: '/images/home/logo8.jpg' },
+  { id: 9, name: 'NGO 9', logo: '/images/home/logo9.avif' },
+  { id: 10, name: 'NGO 10', logo: '/images/home/logo10.png' },
 ];
 
 const slideVariants = {
   animate: (direction) => ({
-    x: direction === 'left' ? [0, -100, 0] : [0, 100, 0],
+    x: direction === 'left' ? [0, -500, 0] : [0, 500, 0],
     transition: {
       x: {
         repeat: Infinity,
@@ -34,7 +34,7 @@ const slideVariants = {
 const NGOSlider = ({ direction }) => {
   return (
     <motion.div
-      className="flex space-x-4"
+      className="flex space-x-4 "
       variants={slideVariants}
       animate="animate"
       custom={direction}
@@ -42,9 +42,9 @@ const NGOSlider = ({ direction }) => {
       {ngos.map((ngo) => (
         <div
           key={ngo.id}
-          className="flex min-w-fit items-center bg-gray-100 rounded-lg p-2"
+          className="flex min-w-fit items-center border-primary rounded-lg p-4"
         >
-          <img src={ngo.logo} alt={`${ngo.name} logo`} className="w-12 h-12" />
+          <img src={ngo.logo} alt={`${ngo.name} logo`} className="w-12 h-12 object-cover rounded-full" />
           <span className="ml-2">{ngo.name}</span>
         </div>
       ))}
@@ -57,14 +57,14 @@ const RegisteredNGOs = () => {
     <div className="py-12">
       <div className="mb-4 flex justify-between items-center">
       <h1 className="text-2xl font-bold mb-4">Registered NGOs</h1>
-        <Link href="#" className="text-secondary">
+        <Link href="/registered-ngos" className="text-secondary">
           View All
         </Link>
       </div>
       <div className="overflow-hidden">
         <NGOSlider direction="right" />
       </div>
-      <div className="overflow-hidden mt-4">
+      <div className="overflow-hidden mt-8">
         <NGOSlider direction="left" />
       </div>
     </div>

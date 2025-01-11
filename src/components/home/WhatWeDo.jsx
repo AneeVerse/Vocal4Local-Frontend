@@ -12,7 +12,7 @@ const exampleCategories = [
 const WhatWeDo = () => {
   return (
     <div className='py-12'>
-    <div className="bg-gray-100 flex flex-col lg:flex-row justify-between gap-8 p-8 rounded-lg">
+    <div className="bg-gradient-to-r from-transparent via-primary to-transparent flex flex-col lg:flex-row justify-between gap-8 p-3 sm:p-8 rounded-lg">
       {/* Left Section */}
       <div className="w-full border border-gray-400 border-dashed p-6 rounded-lg">
         <div>

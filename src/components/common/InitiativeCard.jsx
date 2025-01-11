@@ -6,14 +6,14 @@ const InitiativeCard = ({ campaign }) => {
     <div className="bg-white border rounded-lg p-4 w-full hover:translate-y-[-2px] duration-300">
       {/* Header Section */}
       <div className="flex justify-between items-center">
-        <div className="w-12 h-12 bg-gray-300 rounded-full flex items-center justify-center">
-          <FaTag className="text-gray-500 text-xl" />
+        <div className="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center">
+          <FaTag className="text-gray-500 text-lg" />
         </div>
         <div className="flex gap-3">
-          <button className="bg-[#8ac240] text-white px-4 py-1 rounded-full font-medium hover:translate-y-[-2px] duration-300">
-            Donate Cash
+          <button className="bg-[#8ac240] text-sm sm:text-md text-white px-4 py-1 rounded-full font-medium hover:translate-y-[-2px] duration-300">
+            Donate <span className='hidden sm:inline'>Cash</span>
           </button>
-          <button className="bg-secondary text-white px-4 py-1 rounded-full font-medium hover:translate-y-[-2px] duration-300">
+          <button className="bg-secondary text-sm sm:text-md text-white px-4 py-1 rounded-full font-medium hover:translate-y-[-2px] duration-300">
             Category
           </button>
         </div>
