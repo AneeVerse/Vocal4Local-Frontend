@@ -18,8 +18,8 @@ const Navbar = () => {
   const menuItems = [
     { name: 'Home', href: '/' },
     { name: 'About Us', href: '/about' },
-    { name: 'Services', href: '#' },
-    { name: 'Pages', href: '#' },
+    { name: 'Campaign Details', href: '/campaign-details/1' },
+    { name: 'What we do', href: '/what-we-do' },
     { name: 'Contact Us', href: '/contact' },
   ];
 
@@ -35,7 +35,7 @@ const Navbar = () => {
 
         {/* Logo */}
         <div className="text-3xl font-bold">
-          Local 4 Vocal
+          V4L
         </div>
 
         {/* Desktop Navigation Links */}
@@ -70,7 +70,7 @@ const Navbar = () => {
           <div className="flex justify-between items-center mb-8">
             {/* Logo in Sidebar */}
             <div className="text-3xl font-bold">
-            Local 4 Vocal
+           V4L
             </div>
             {/* Close Button */}
             <button onClick={toggleMenu} className="text-white text-2xl">

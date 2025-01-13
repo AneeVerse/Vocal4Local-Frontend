@@ -1,4 +1,5 @@
 'use client';
+import NGOSliderSection from '@/components/common/NGOSliderSection';
 import React, { useState } from 'react';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 
@@ -44,20 +45,13 @@ const RegisteredNGOs = () => {
 
   return (
     <div className="bg-gray-100 min-h-screen py-12 px-6">
-      {/* Top Navigation Buttons */}
-      {/* <div className="flex justify-center space-x-4 mb-10">
-        {[...Array(8)].map((_, index) => (
-          <button
-            key={index}
-            className="bg-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all"
-          >
-            {index % 2 === 0 ? <FaArrowLeft /> : <FaArrowRight />}
-          </button>
-        ))}
-          
-      </div> */}
-
+     
+      <h1 className="text-3xl font-bold text-gray-800 text-left mb-10">Registered NGOs</h1>
+<div className="mb-10">
+<NGOSliderSection />
+</div>
       {/* Header Section */}
+
       <div className="text-center mb-10">
         <h1 className="text-4xl font-bold text-gray-800">Name of the Initiative</h1>
         <p className="text-gray-600 mt-4">

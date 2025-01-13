@@ -45,7 +45,7 @@ const BlogComponent = () => {
 
   return (
     <div className="py-12">
-      <div className="p-3 sm:p-8 bg-primary rounded-xl">
+      <div className=" rounded-xl">
         <h2 className="text-gray-700 text-3xl font-extrabold mb-6">Blogs</h2>
 
         {/* Filter Buttons */}

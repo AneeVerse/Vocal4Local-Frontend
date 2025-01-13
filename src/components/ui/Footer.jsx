@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 import { FaFacebook, FaGithub, FaLinkedin, FaBehance } from 'react-icons/fa';
 
@@ -35,7 +36,7 @@ const Footer = () => {
         <div className="flex flex-wrap justify-between">
           {/* Logo and description */}
           <div className="w-full md:w-1/3 mb-6 md:mb-0">
-            <h1 className="text-3xl font-bold mb-4">Local 4 Vocal</h1>
+            <h1 className="text-3xl font-bold mb-4">Vocal 4 Local</h1>
             <p>
               Turpis tortor nunc sed amet et faucibus vitae morbi congue sed id
               mauris.
@@ -84,10 +85,10 @@ const Footer = () => {
 
         {/* Bottom section */}
         <div className="mt-10 border-t pt-6 flex flex-wrap justify-between items-center text-sm">
-          <p>© 2025 Local 4 Vocal. All Rights Reserved</p>
+          <p>© 2025 Vocal 4 Local. All Rights Reserved</p>
           <div className="flex space-x-4">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms & Conditions</a>
+            <Link href="/privacy-policy">Privacy Policy</Link>
+            <Link href="/terms-and-conditions">Terms & Conditions</Link>
           </div>
         </div>
       </div>
