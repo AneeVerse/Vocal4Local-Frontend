@@ -199,7 +199,7 @@ const TopCampaignList = () => {
           {/* Left Button */}
           {current > 0 && (
             <FaAngleLeft
-              className="text-secondary absolute top-1/2 left-4 z-40 cursor-pointer border border-secondary hover:bg-secondary hover:text-white bg-white w-10 h-10 p-2 rounded-full transition-all"
+              className="text-secondary absolute top-1/2 left-4 z-30 cursor-pointer border border-secondary hover:bg-secondary hover:text-white bg-white w-10 h-10 p-2 rounded-full transition-all"
               onClick={handleLeft}
             />
           )}
@@ -207,7 +207,7 @@ const TopCampaignList = () => {
           {/* Right Button */}
           {current < campaigns.length - cardsToShow && (
             <FaAngleRight
-              className="text-secondary absolute top-1/2 right-4 z-40 cursor-pointer border border-secondary hover:bg-secondary hover:text-white bg-white w-10 h-10 p-2 rounded-full transition-all"
+              className="text-secondary absolute top-1/2 right-4 z-30 cursor-pointer border border-secondary hover:bg-secondary hover:text-white bg-white w-10 h-10 p-2 rounded-full transition-all"
               onClick={handleRight}
             />
           )}

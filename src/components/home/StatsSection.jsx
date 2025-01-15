@@ -1,4 +1,7 @@
 "use client";
+import { useEffect, useRef } from "react";
+import { motion, useAnimation } from "framer-motion";
+
 const StatsSection = () => {
   const logos = [
     "/images/home/partner/partner1.png",
@@ -14,18 +17,57 @@ const StatsSection = () => {
     { value: "40K", label: "Satisfied Clients" },
   ];
 
+  const controls = useAnimation();
+
+  useEffect(() => {
+    controls.start({
+      x: [0, -2000],
+      transition: {
+        repeat: Infinity,
+        duration: 20,
+        ease: "linear",
+      },
+    });
+  }, [controls]);
+
   return (
     <div className="bg-white py-12">
       {/* Logos Section */}
-      <div className="flex flex-wrap justify-center items-center gap-8 border-b border-gray-300 pb-8">
-        {logos.map((logo, index) => (
-          <img
-            key={index}
-            src={logo}
-            alt={`Logo ${index + 1}`}
-            className=" h-6 md:h-12 object-cover w-auto grayscale opacity-80"
-          />
-        ))}
+      <div className="relative overflow-hidden">
+        <motion.div
+          animate={controls}
+          className="flex gap-8 whitespace-nowrap"
+          onHoverStart={() => controls.stop()}
+          onHoverEnd={() =>
+            controls.start({
+              x: [0, -2000],
+              transition: {
+                repeat: Infinity,
+                duration: 20,
+                ease: "linear",
+              },
+            })
+          }
+        >
+          {logos.map((logo, index) => (
+            <img
+              key={index}
+              src={logo}
+              alt={`Logo ${index + 1}`}
+              className="h-12 object-cover w-auto grayscale opacity-80 hover:opacity-100"
+            />
+          ))}
+          {logos.map((logo, index) => (
+            <img
+              key={`clone-${index}`}
+              src={logo}
+              alt={`Logo clone ${index + 1}`}
+              className="h-12 object-cover w-auto grayscale opacity-80 hover:opacity-100"
+            />
+          ))}
+        </motion.div>
+        <div className="absolute top-0 left-0 w-12 h-full bg-gradient-to-r from-white to-transparent"></div>
+        <div className="absolute top-0 right-0 w-12 h-full bg-gradient-to-l from-white to-transparent"></div>
       </div>
 
       {/* Stats Section */}

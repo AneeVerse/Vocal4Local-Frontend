@@ -19,7 +19,7 @@ export default function Home() {
         <StatsSection/>
         <TopCampaignList/>
         <RegisteredNGOs/>
-        <WhatWeDo/>
+        {/* <WhatWeDo/> */}
         <CampaignList/>
         <ShortVideo/>
         <BlogComponent/>

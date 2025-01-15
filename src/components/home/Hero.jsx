@@ -35,21 +35,25 @@ const HeroSection = () => {
       </div>
 
       {/* Overlay Content */}
-      <div className="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center text-center px-4">
-        <p className="text-white text-sm tracking-wide mb-2">50K+ TRUSTED BUSINESSES</p>
-        <h1 className="text-white text-4xl md:text-5xl font-bold leading-tight mb-4">
-          Make your <span className="italic border px-5 py-2 rounded-full inline-block decoration-white">Finance</span> more efficient.
+      <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-60 gap-[30px] flex flex-col px-4 sm:px-8 md:px-12">
+        <p className="text-white mt-[130px] text-sm tracking-wide mb-2">50K+ TRUSTED BUSINESSES</p>
+        <h1 className="text-white text-4xl sm:text-5xl h1-lineHeight max-w-[400px] sm:max-w-[500px] md:text-6xl md:max-w-[600px]  font-bold mb-4">
+          Make your <span className="italic border px-5 py-2 rounded-full inline-block decoration-white">Finance</span>  more efficient.
         </h1>
         <p className="text-white text-sm md:text-base max-w-2xl mb-6">
           Until recently, the prevailing view assumed lorem ipsum was born as a nonsense text.
         </p>
 
         {/* Buttons */}
-        <div className="flex space-x-4">
-          <button className="bg-gray-200 text-black px-8 py-2 rounded-lg shadow-md hover:bg-gray-300 transition text-lg font-medium">
+        <div className="flex justify-center  flex-wrap gap-4 w-full max-w-[900px] mx-auto">
+          <button className="  bg-primary sm:flex-1 text-black px-8 py-2 rounded-full shadow-md hover:bg-gray-300 transition text-lg font-medium">
             Donate
           </button>
-          <button className="bg-gray-200 text-black px-8 py-2 rounded-lg shadow-md hover:bg-gray-300 transition text-lg font-medium">
+          <button className=" sm:flex-1 bg-primary text-black px-8 py-2 rounded-full shadow-md hover:bg-gray-300 transition text-lg font-medium">
+            Volunteer
+          </button>
+
+          <button className=" sm:flex-1 bg-primary text-black px-8 py-2 rounded-full shadow-md hover:bg-gray-300 transition text-lg font-medium">
             Volunteer
           </button>
         </div>

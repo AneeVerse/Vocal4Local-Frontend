@@ -17,3 +17,16 @@ body{
     scrollbar-width: none; /* Firefox */
   }
   
+
+
+  .h1-lineHeight{
+    line-height: 70px !important;
+  }
+
+  @media (max-width: 768px) {
+    .h1-lineHeight{
+      line-height: 50px !important;
+    }
+  }
+
+ 

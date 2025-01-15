@@ -1,5 +1,5 @@
 "use client"
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FiMenu, FiUser, FiX } from 'react-icons/fi';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
@@ -8,6 +8,7 @@ import { usePathname } from 'next/navigation';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
 
   const toggleMenu = () => {
@@ -23,18 +24,36 @@ const Navbar = () => {
     { name: 'Contact Us', href: '/contact' },
   ];
 
+  // set the background color of the navbar on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+    console.log(window.scrollY);
+    console.log(isScrolled);
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
-    <header className="bg-secondary text-white p-4 fixed top-0 left-0 bg-opacity-70 right-0 z-40" style={{ height: '90px' }}>
+    <div className={`fixed top-0 left-0 right-0 z-40  p-4 transition-all duration-500 ${isScrolled ? 'bg-white backdrop-blur-md bg-opacity-50 ' : 'bg-transparent'}`} style={{ height: '90px' }}>
       <div className="max-w-7xl mx-auto flex justify-between items-center h-full">
         {/* Mobile Hamburger Icon */}
         <div className="lg:hidden">
-          <button onClick={toggleMenu} className="text-white text-2xl">
+          <button onClick={toggleMenu} className={`${isScrolled ? " text-secondary " : " text-white "} transition-all duration-300 text-2xl`}>
             {isOpen ? <FiX /> : <FiMenu />}
           </button>
         </div>
 
         {/* Logo */}
-        <div className="text-3xl font-bold">
+        <div className={`text-3xl ${isScrolled ? " text-secondary " : " text-white "} transition-all duration-300 font-bold`}>
           V4L
         </div>
 
@@ -54,7 +73,7 @@ const Navbar = () => {
             Button
           </button>
           
-          <FiUser className='text-2xl hover:translate-y-[-2px] duration-300  cursor-pointer' />
+          <FiUser className={`text-2xl ${isScrolled ? " text-secondary " : " text-white "} transition-all duration-300 hover:translate-y-[-2px]  cursor-pointer`} />
         </div>
       </div>
 
@@ -65,28 +84,28 @@ const Navbar = () => {
           animate={{ x: 0 }}
           exit={{ x: '-100%' }}
           transition={{ ease: "easeInOut", duration: 0.3 }}
-          className="fixed top-0 left-0 w-3/4 h-full bg-secondary p-6 shadow-lg lg:hidden"
+          className="fixed top-0 left-0 w-3/4 z-50 h-screen bg-primary p-6 shadow-lg lg:hidden"
         >
           <div className="flex justify-between items-center mb-8">
             {/* Logo in Sidebar */}
-            <div className="text-3xl font-bold">
+            <div className="text-3xl text-secondary font-bold">
            V4L
             </div>
             {/* Close Button */}
-            <button onClick={toggleMenu} className="text-white text-2xl">
+            <button onClick={toggleMenu} className="text-secondary text-2xl">
               <FiX />
             </button>
           </div>
           <nav className="space-y-6">
             {menuItems.map((item) => (
-              <Link key={item.name} href={item.href} className="block text-white text-lg">
+              <Link key={item.name} href={item.href} className="block text-secondary text-lg">
                 {item.name}
               </Link>
             ))}
           </nav>
         </motion.div>
       )}
-    </header>
+    </div>
   );
 };
 
