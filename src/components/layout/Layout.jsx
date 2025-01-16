@@ -5,7 +5,6 @@ import Footer from '../ui/Footer'
 const Layout = ({children}) => {
   return (
     <>
-        <Navbar/>
         {children}
         <Footer/>
     </>

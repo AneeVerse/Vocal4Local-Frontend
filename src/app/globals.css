@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  .custom-gradient {
+    background: radial-gradient(circle, #d3e0a3,transparent);
+  }
+}
 
 body{
     overflow-x: hidden;

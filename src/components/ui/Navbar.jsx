@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 
-const Navbar = () => {
+const Navbar = ({color}) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
@@ -53,7 +53,7 @@ const Navbar = () => {
         </div>
 
         {/* Logo */}
-        <div className={`text-3xl ${isScrolled ? " text-secondary " : " text-white "} transition-all duration-300 font-bold`}>
+        <div className={`text-3xl ${isScrolled ? " text-secondary " : ` text-${color} `} transition-all duration-300 font-bold`}>
           V4L
         </div>
 
@@ -73,7 +73,7 @@ const Navbar = () => {
             Button
           </button>
           
-          <FiUser className={`text-2xl ${isScrolled ? " text-secondary " : " text-white "} transition-all duration-300 hover:translate-y-[-2px]  cursor-pointer`} />
+          <FiUser className={`text-2xl ${isScrolled ? " text-secondary " : ` text-${color} `} transition-all duration-300 hover:translate-y-[-2px]  cursor-pointer`} />
         </div>
       </div>
 

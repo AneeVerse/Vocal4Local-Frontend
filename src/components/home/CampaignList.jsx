@@ -73,7 +73,9 @@ const CampaignList = () => {
     return (
       <div className="py-12">
       
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 -m-2">
+        <div className="grid relative grid-cols-1 md:grid-cols-3 gap-5 -m-2">
+              {/* one primary circle gredient background color */}
+              <div className="absolute  top-0 blur-3xl left-[50%] translate-x-[-50%] -z-10 md:h-full  aspect-square custom-gradient rounded-full"></div>
           {campaigns.map((campaign) => (
             <div key={campaign.id} className="p-2">
               <InitiativeCard campaign={campaign} />

@@ -172,8 +172,13 @@ const TopCampaignList = () => {
           </a>
         </div>
 
+<div className="relative overflow-hidden">
+
+             {/* one primary circle gredient background color */}
+             <div className="absolute top-0 blur-3xl left-[50%] translate-x-[-50%] z-0 h-full  aspect-square custom-gradient rounded-full"></div>
+
         {/* Scrollable Section */}
-        <div className="relative overflow-hidden">
+        <div className="overflow-hidden">
           {/* Cards Container */}
           <div
             className="flex py-2 gap-4 transition-transform duration-500 ease-in-out"
@@ -211,6 +216,7 @@ const TopCampaignList = () => {
               onClick={handleRight}
             />
           )}
+        </div>
         </div>
       </div>
     </section>
