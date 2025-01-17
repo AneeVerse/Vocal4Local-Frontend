@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 import WhatWeDo from "@/components/home/WhatWeDo";
 import CampaignList from "@/components/home/CampaignList";
+import CoreAreasAndContact from "@/components/ngoDetails/CoreAreasAndContact";
 
 const Local4LocalPage = () => {
   // Data object for the page
@@ -13,8 +14,10 @@ const Local4LocalPage = () => {
     loremText:
       "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from 'de Finibus Bonorum et Malorum' by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.",
     associatedWares: [
-      "Demo test demo text", "Demo test demo text", "Demo test demo text",
-      "Demo test demo text", "Demo test demo text"
+      { name: "Ware Name 1", image: "/images/home/slide1.webp" },
+      { name: "Ware Name 2", image: "/images/home/slide2.webp" },
+      { name: "Ware Name 3", image: "/images/home/slide3.webp" },
+      { name: "Ware Name 4", image: "/images/home/slide4.webp" },
     ],
     heroImages: [
       "/images/home/slide1.webp", 
@@ -48,10 +51,10 @@ const Local4LocalPage = () => {
   };
 
   return (
-    <div className=" max-w-7xl pb-10 mx-auto min-h-screen flex flex-col items-center">
+    <div className="pb-10 min-h-screen">
       {/* Header Section */}
       <motion.div
-        className="bg-white shadow  w-full"
+        className="bg-white   w-full"
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
@@ -77,7 +80,7 @@ const Local4LocalPage = () => {
             </button>
           </div>
         </div>
-        <div className="p-6 flex flex-col sm:flex-row justify-between items-center gap-4">
+        <div className="p-3 flex flex-col sm:flex-row justify-between items-center gap-4">
           <div>
             <h2 className="text-2xl font-bold mb-2">What we do</h2>
             <h3 className="text-xl font-semibold">{data.title}</h3>
@@ -109,7 +112,7 @@ const Local4LocalPage = () => {
 
       {/* Content Section */}
       <motion.div
-        className="bg-white shadow rounded-lg w-full mt-6 p-6"
+        className="bg-white rounded-lg w-full mt-0 p-3"
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
@@ -119,23 +122,32 @@ const Local4LocalPage = () => {
 
       {/* Associated Wares Section */}
       <motion.div
-        className="bg-white shadow rounded-lg w-full  mt-6 p-6"
+        className="bg-white border border-dashed rounded-lg w-full  mt-6 p-6"
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.4 }}
       >
-        <h2 className="text-xl font-bold mb-4">Ware associated with</h2>
-        <div className="flex gap-4 overflow-x-auto">
+        <h2 className="text-2xl text-center font-bold mb-2">Ware associated with</h2>
+        <div className="mb-4">
+          <p className="text-gray-700 text-center">We provide the following services, to help you with your daily needs</p>
+        </div>
+        <div className="flex flex-wrap gap-8 justify-center  overflow-x-auto">
           {data.associatedWares.map((ware, index) => (
-            <div
-              key={index}
-              className="min-w-[150px] h-20 bg-gray-300 rounded-lg flex items-center justify-center text-gray-700 font-medium"
-            >
-              {ware}
+            <div key={index} className="border border-dashed p-3 rounded-lg overflow-hidden">
+              <div className="flex gap-3 items-center">
+
+              <img
+                src={ware.image}
+                alt={ware.name}
+                className="w-[40px] h-[40px] object-cover rounded-full self-center"
+              />
+              <p className="text-gray-700">{ware.name}</p>
+              </div>
             </div>
           ))}
         </div>
       </motion.div>
+      <CoreAreasAndContact/>
           <WhatWeDo />
           <CampaignList />
 

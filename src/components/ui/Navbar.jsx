@@ -43,7 +43,7 @@ const Navbar = ({color}) => {
   }, []);
 
   return (
-    <div className={`fixed top-0 left-0 right-0 z-40  p-4 transition-all duration-500 ${isScrolled ? 'bg-white backdrop-blur-md bg-opacity-50 ' : 'bg-transparent'}`} style={{ height: '90px' }}>
+    <div className={`fixed top-0 ${isScrolled ? " border-b border-dashed ": " "} left-0 right-0 z-40  p-4 transition-all duration-500 ${isScrolled ? 'bg-white backdrop-blur-md bg-opacity-50 ' : 'bg-transparent'}`} style={{ height: '90px' , }}>
       <div className="max-w-7xl mx-auto flex justify-between items-center h-full">
         {/* Mobile Hamburger Icon */}
         <div className="lg:hidden">

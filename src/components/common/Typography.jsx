@@ -1,11 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import clsx from 'clsx';
 
 // Define default styles for different variants
 const VARIANT_STYLES = {
-  h1: "text-4xl font-bold",
-  h2: "text-3xl font-bold",
+  h1: "text-3xl  mb-6 text-secondary",
+  h2: "text-3xl  mb-6 text-secondary",
   h3: "text-2xl font-semibold",
   h4: "text-xl font-semibold",
   h5: "text-lg font-medium",
@@ -17,7 +16,7 @@ const VARIANT_STYLES = {
 const Typography = ({ as: Component = 'p', variant = 'paragraph', className = '', children, ...props }) => {
   return (
     <Component
-      className={clsx(VARIANT_STYLES[variant], className)}
+      className={`${VARIANT_STYLES[variant]}, ${className}`}
       {...props}
     >
       {children}

@@ -17,8 +17,8 @@ const layout = ({children}) => {
          />
          <Navbar color={"secondary"}/>
    <Layout>
-    <div className='mt-[90px]'></div>
-        {children}
+    <div className='mt-[90px] px-3 max-w-7xl mx-auto'>
+        {children}</div>
    </Layout></>
   )
 }

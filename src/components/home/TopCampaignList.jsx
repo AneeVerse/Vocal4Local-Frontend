@@ -2,6 +2,7 @@
 import { useState, useEffect, useRef } from "react";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa6";
 import InitiativeCard from "../common/InitiativeCard";
+import Typography from "../common/Typography";
 
 // Sample data array
 const campaigns = [
@@ -166,7 +167,7 @@ const TopCampaignList = () => {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-4 flex justify-between items-center">
-          <h1 className="text-2xl font-bold">Top Campaigns</h1>
+          <Typography as="h2" variant="h2">Top <span className="font-bold">Campaigns</span></Typography>
           <a href="#" className="text-secondary hover:underline">
             View All
           </a>

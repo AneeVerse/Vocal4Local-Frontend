@@ -77,9 +77,11 @@ const ContactForm = () => {
   };
 
   return (
-    <section className="py-16 ">
+    <section className="py-16 relative ">
+             {/* one primary circle gredient background color */}
+             <div className="absolute  top-0 blur-3xl left-[50%] translate-x-[-50%] -z-10 h-full w-full custom-gradient rounded-full"></div>
       <div className="">
-        <div className="bg-white border border-dashed rounded-lg grid lg:grid-cols-2 gap-8 p-8">
+        <div className=" bg-white border border-dashed rounded-lg grid lg:grid-cols-2 gap-8 p-8">
           {/* Form Section */}
           <div>
             <h2 className="text-4xl font-bold text-[#0e2f50] mb-6">

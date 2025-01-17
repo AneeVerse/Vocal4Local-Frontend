@@ -2,6 +2,7 @@
 import React, { useState, useRef } from "react";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
+import Typography from "../common/Typography";
 
 const ShortVideo = () => {
   const [selectedVideo, setSelectedVideo] = useState(null);
@@ -46,11 +47,9 @@ const ShortVideo = () => {
     <section className="relative py-12">
       <div className="">
         {/* Header */}
-        <div className="text-left mb-8">
-          <h1 className="mt-4 text-3xl font-extrabold text-gray-800">
-            Join the Journey
-          </h1>
-        </div>
+      
+       <Typography as="h2" variant="h2">Join the  <span className="font-bold">Journey</span></Typography>
+       
 
         {/* Video Carousel */}
         <div className="relative">

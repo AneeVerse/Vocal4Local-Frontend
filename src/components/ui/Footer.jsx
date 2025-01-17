@@ -31,7 +31,7 @@ const socialLinks = [
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-100 text-gray-700 py-10">
+    <footer className="bg-gray-50 text-gray-700 py-10">
       <div className="container mx-auto px-6 lg:px-20">
         <div className="flex flex-wrap justify-between">
           {/* Logo and description */}

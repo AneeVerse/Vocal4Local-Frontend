@@ -1,12 +1,49 @@
 'use client';
 import NGOSliderSection from '@/components/common/NGOSliderSection';
-import React, { useState } from 'react';
+import Typography from '@/components/common/Typography';
+import React, { useEffect, useState } from 'react';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+import { motion, useAnimation } from 'framer-motion';
 
 const RegisteredNGOs = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [stateFilter, setStateFilter] = useState('');
   const [categoryFilter, setCategoryFilter] = useState('');
+  const logos = [
+      "/images/home/partner/partner1.png",
+      "/images/home/partner/partner1.png",
+      "/images/home/partner/partner1.png",
+      "/images/home/partner/partner1.png",
+      "/images/home/partner/partner1.png",
+    ];
+    const stats = [
+      { value: "60%", label: "Project Completed" },
+      { value: "30+", label: "Team Members" },
+      { value: "40K", label: "Satisfied Clients" },
+    ];
+  
+    const controls = useAnimation();
+    const [currentX, setCurrentX] = useState(0); // Track the current position
+  
+    const startAnimation = (fromX = 0) => {
+      controls.start({
+        x: [fromX, -1000], // Resume from the current position
+        transition: {
+          repeat: Infinity,
+          duration: 20, // Adjust for speed
+          ease: "linear",
+        },
+      });
+    };
+  
+    const stopAnimation = () => {
+      controls.stop();
+    };
+  
+    useEffect(() => {
+      startAnimation();
+    }, []);
+  
 
   const ngoData = [
     {
@@ -44,11 +81,38 @@ const RegisteredNGOs = () => {
   };
 
   return (
-    <div className="bg-gray-100 min-h-screen py-12 px-6">
+    <div className=" min-h-screen py-12 px-6">
      
-      <h1 className="text-3xl font-bold text-gray-800 text-left mb-10">Registered NGOs</h1>
+      <Typography as='h1' variant='h2'>Registered <span className='font-bold'>NGOs</span></Typography>
 <div className="mb-10">
-<NGOSliderSection />
+<div className="bg-white py-8 overflow-hidden relative">
+
+
+
+      <div className="relative border-t border-b  border-dashed py-6">
+        <motion.div
+          animate={controls}
+          className="flex whitespace-nowrap"
+          onUpdate={(latest) => {
+            // Track the current animation progress
+            setCurrentX(latest.x || 0);
+          }}
+          onHoverStart={stopAnimation} // Stop animation on hover
+          onHoverEnd={() => startAnimation(currentX)} // Resume from the same point
+        >
+          {/* Original Logos */}
+          {[...logos,...logos,...logos,...logos].map((logo, index) => (
+            <img
+              key={index}
+              src={logo}
+              alt={`Partner ${index + 1}`}
+              className="h-10 object-contain border-r px-6 border-dashed w-auto grayscale hover:grayscale-0 transition-all"
+            />
+          ))}
+         
+        </motion.div>
+        </div>
+        </div>
 </div>
       {/* Header Section */}
 
@@ -101,7 +165,7 @@ const RegisteredNGOs = () => {
       {/* NGO Cards */}
       <div className="flex justify-center flex-wrap gap-8">
         {ngoData.map((ngo) => (
-          <div key={ngo.id} className="bg-white w-[380px] p-6 rounded-lg shadow-lg">
+          <div key={ngo.id} className="bg-white w-[380px] p-6 rounded-lg border border-dashed">
             <div className="flex items-center mb-4">
               <div className="w-16 h-16 bg-gray-300 rounded-full flex-shrink-0"></div>
               <div className="ml-4">
