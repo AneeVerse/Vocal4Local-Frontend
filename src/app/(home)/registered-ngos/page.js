@@ -22,28 +22,7 @@ const RegisteredNGOs = () => {
       { value: "40K", label: "Satisfied Clients" },
     ];
   
-    const controls = useAnimation();
-    const [currentX, setCurrentX] = useState(0); // Track the current position
-  
-    const startAnimation = (fromX = 0) => {
-      controls.start({
-        x: [fromX, -1000], // Resume from the current position
-        transition: {
-          repeat: Infinity,
-          duration: 20, // Adjust for speed
-          ease: "linear",
-        },
-      });
-    };
-  
-    const stopAnimation = () => {
-      controls.stop();
-    };
-  
-    useEffect(() => {
-      startAnimation();
-    }, []);
-  
+   
 
   const ngoData = [
     {
@@ -84,39 +63,12 @@ const RegisteredNGOs = () => {
     <div className=" min-h-screen py-12 px-6">
      
       <Typography as='h1' variant='h2'>Registered <span className='font-bold'>NGOs</span></Typography>
-<div className="mb-10">
-<div className="bg-white py-8 overflow-hidden relative">
-
-
-
-      <div className="relative border-t border-b  border-dashed py-6">
-        <motion.div
-          animate={controls}
-          className="flex whitespace-nowrap"
-          onUpdate={(latest) => {
-            // Track the current animation progress
-            setCurrentX(latest.x || 0);
-          }}
-          onHoverStart={stopAnimation} // Stop animation on hover
-          onHoverEnd={() => startAnimation(currentX)} // Resume from the same point
-        >
-          {/* Original Logos */}
-          {[...logos,...logos,...logos,...logos].map((logo, index) => (
-            <img
-              key={index}
-              src={logo}
-              alt={`Partner ${index + 1}`}
-              className="h-10 object-contain border-r px-6 border-dashed w-auto grayscale hover:grayscale-0 transition-all"
-            />
-          ))}
-         
-        </motion.div>
-        </div>
-        </div>
+      <div className="mb-12 mt-10">
+<NGOSliderSection />
 </div>
       {/* Header Section */}
 
-      <div className="text-center mb-10">
+      <div className="text-center mt-12 mb-10">
         <h1 className="text-4xl font-bold text-gray-800">Name of the Initiative</h1>
         <p className="text-gray-600 mt-4">
           Demo test demo text demo text demo text demo text demo text demo text...

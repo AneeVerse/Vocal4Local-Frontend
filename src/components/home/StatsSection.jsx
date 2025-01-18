@@ -1,6 +1,8 @@
 "use client";
 import { useEffect, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
+import Link from "next/link";
+import AnimatedLinkButton from "../common/AnimatedLinkButton";
 
 const PartnerLogoSlider = () => {
   const logos = [
@@ -30,18 +32,19 @@ const PartnerLogoSlider = () => {
     });
   };
 
-  const stopAnimation = () => {
-    controls.stop();
-  };
+  // const stopAnimation = () => {
+  //   controls.stop();
+  // };
 
   useEffect(() => {
     startAnimation();
   }, []);
 
   return (
-    <div className="bg-white py-8 overflow-hidden relative">
-      <div className="text-center text-md text-secondary mb-12">Trusted by thousands of companies across 50+ countries</div >
-
+    <div className="py-8 overflow-hidden relative">
+      <div className="text-center text-md text-secondary mb-12">
+        Trusted by thousands of companies across 50+ countries
+      </div>
 
       <div className="relative border-t border-b  border-dashed py-6">
         <motion.div
@@ -51,19 +54,18 @@ const PartnerLogoSlider = () => {
             // Track the current animation progress
             setCurrentX(latest.x || 0);
           }}
-          onHoverStart={stopAnimation} // Stop animation on hover
-          onHoverEnd={() => startAnimation(currentX)} // Resume from the same point
+          // onHoverStart={stopAnimation} // Stop animation on hover
+          // onHoverEnd={() => startAnimation(currentX)} // Resume from the same point
         >
           {/* Original Logos */}
-          {[...logos,...logos,...logos,...logos].map((logo, index) => (
+          {[...logos, ...logos, ...logos, ...logos].map((logo, index) => (
             <img
               key={index}
               src={logo}
               alt={`Partner ${index + 1}`}
-              className="h-10 object-contain border-r px-6 border-dashed w-auto grayscale hover:grayscale-0 transition-all"
+              className="h-10 object-contain border-r px-6 border-dashed w-auto grayscale transition-all"
             />
           ))}
-         
         </motion.div>
 
         {/* Optional gradient fade on edges */}
@@ -74,10 +76,23 @@ const PartnerLogoSlider = () => {
       <div className="grid grid-cols-3 md:grid-cols-3 gap-4 max-w-[988px] mx-auto md:gap-8 mt-8 text-center py-8">
         {stats.map((stat, index) => (
           <div key={index}>
-            <p className="text-3xl md:text-5xl font-bold text-black">{stat.value}</p>
-            <p className="text-[12px] sm:text-sm md:text-md md:text-gray-600">{stat.label}</p>
+            <p className="text-3xl md:text-5xl font-bold text-black">
+              {stat.value}
+            </p>
+            <p className="text-[12px] sm:text-sm md:text-md md:text-gray-600">
+              {stat.label}
+            </p>
           </div>
         ))}
+      </div>
+      <div className="mt-8 text-center">
+        {/* <Link
+          href="/partners"
+          className="text-secondary border  rounded-full px-8 py-[12px] hover:bg-secondary hover:text-white transition-all duration-300"
+        >
+          View All Partners
+        </Link> */}
+        <AnimatedLinkButton href="/partners" text="View All Partners" />
       </div>
     </div>
   );

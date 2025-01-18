@@ -3,31 +3,28 @@ import { FaDonate, FaTag } from 'react-icons/fa';
 
 const InitiativeCard = ({ campaign }) => {
   return (
-    <div className="bg-white  rounded-lg p-2 w-full hover:translate-y-[-2px] duration-300">
+    <div className="bg-white  rounded-2xl p-[8px] shadow-md w-full hover:scale-105 cursor-pointer duration-300">
   
-      <div className='border border-dashed p-2 rounded-lg'>
+      <div className='border border-dashed p-[8px] rounded-2xl'>
   
 
       {/* Image Section */}
-      <div className=" relative bg-gray-100 h-[180px] rounded-lg shadow-inner">
+      <div className=" relative bg-gray-100 h-[180px] rounded-2xl shadow-inner">
 
-            {/* Header Section */}
-      <div className="flex top-2 left-2 absolute gap-2 justify-between items-center">
-        <div className='flex items-center'>
-        <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-          <FaTag className="text-gray-500 text-lg" />
+            {/* Overlay Header Section */}
+        <div className="absolute top-2 left-2 flex items-center gap-2">
+          <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-sm">
+            <FaTag className="text-gray-500 text-lg" />
+          </div>
         </div>
-          <div className='bg-white ml-[-10px] min-w-fit rounded-r-full text-sm sm:text-md text-secondary px-4 py-1  font-medium '>Logo Name</div>
-        </div>
-        <div className="flex gap-2">
-          {/* <button className="bg-[#8ac240] text-sm sm:text-md text-white px-4 py-1 rounded-full font-medium hover:translate-y-[-2px] duration-300">
-            Donate <span className='hidden sm:inline'>Cash</span>
-          </button> */}
-          <button className="bg-secondary text-sm sm:text-md text-white px-4 py-1 rounded-full font-medium hover:translate-y-[-2px] bg-opacity-50 backdrop-blur-sm duration-300">
+        <div className="absolute top-2 right-2 flex gap-2">
+          <button className="bg-white text-sm text-secondary px-3 py-1 rounded-full font-medium shadow-sm hover:translate-y-[-2px] duration-300">
+            Donate
+          </button>
+          <button className="bg-white text-sm text-secondary px-3 py-1 rounded-full font-medium shadow-sm hover:translate-y-[-2px] duration-300">
             Category
           </button>
         </div>
-      </div>
       {/* Image Section */}
         <img
           src={campaign.imgUrl}
@@ -40,10 +37,10 @@ const InitiativeCard = ({ campaign }) => {
       </div>
 
       {/* Details Section */}
-      <div className="mt-6 text-left">
+      <div className="mt-6 space-y-2 text-left">
         <h2 className="font-bold text-lg text-[#0e2f50]">{campaign.name}</h2>
         <p className="text-sm text-gray-600">By: {campaign.organization}</p>
-        <p className="mt-2 text-gray-700 text-sm">{campaign.description}</p>
+        <p className=" text-gray-700 text-sm">{campaign.description}</p>
       </div>
 
       {/* Progress Section */}

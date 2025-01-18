@@ -182,7 +182,7 @@ const TopCampaignList = () => {
         <div className="overflow-hidden">
           {/* Cards Container */}
           <div
-            className="flex py-2 gap-4 transition-transform duration-500 ease-in-out"
+            className="flex py-4 gap-4 transition-transform duration-500 ease-in-out"
             style={{
               transform: `translateX(-${current * (100 / cardsToShow)}%)`,
             }}

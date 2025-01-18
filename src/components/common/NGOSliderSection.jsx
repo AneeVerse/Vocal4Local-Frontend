@@ -32,7 +32,7 @@ const ngos = [
   const NGOSlider = ({ direction }) => {
     return (
       <motion.div
-        className={`flex space-x-4 `}
+        className={`flex gap-4 ${direction === 'left' ? 'justify-start' : 'justify-end'}`}
         variants={slideVariants}
         animate="animate"
         custom={direction}
@@ -40,9 +40,9 @@ const ngos = [
         {ngos.map((ngo) => (
           <div
             key={ngo.id}
-            className="flex min-w-fit items-center border-primary rounded-lg p-4"
+            className="flex min-w-fit items-center border border-dashed rounded-lg px-4 py-3"
           >
-            <img src={ngo.logo} alt={`${ngo.name} logo`} className="w-12 h-12 object-cover rounded-full" />
+            <img src={ngo.logo} alt={`${ngo.name} logo`} className="w-10 h-10 bg-gray-100 object-cover rounded-full" />
             <span className="ml-2">{ngo.name}</span>
           </div>
         ))}
