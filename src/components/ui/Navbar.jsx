@@ -43,7 +43,7 @@ const Navbar = ({color}) => {
   }, []);
 
   return (
-    <div className={`fixed top-0 ${isScrolled ? " border-b border-dashed ": " "} left-0 right-0 z-40  p-4 transition-all duration-500 ${isScrolled ? 'bg-white backdrop-blur-md bg-opacity-50 ' : 'bg-transparent'}`} style={{ height: '90px' , }}>
+    <div className={`fixed top-0  left-0 right-0 z-40  p-4 transition-all duration-500 ${isScrolled ? 'bg-white backdrop-blur-md bg-opacity-50 ' : 'bg-transparent'}`} style={{ height: '90px' , }}>
       <div className="max-w-7xl mx-auto flex justify-between items-center h-full">
         {/* Mobile Hamburger Icon */}
         <div className="lg:hidden">
@@ -53,9 +53,9 @@ const Navbar = ({color}) => {
         </div>
 
         {/* Logo */}
-        <div className={`text-3xl ${isScrolled ? " text-secondary " : ` text-${color} `} transition-all duration-300 font-bold`}>
+        <Link href={"/"} className={`text-3xl ${isScrolled ? " text-secondary " : ` text-${color} `} transition-all duration-300 block font-bold`}>
           V4L
-        </div>
+        </Link>
 
         {/* Desktop Navigation Links */}
         <nav className="hidden lg:flex items-center bg-white gap-5 px-8 py-2 rounded-full">
@@ -73,7 +73,7 @@ const Navbar = ({color}) => {
             Button
           </button>
           
-          <FiUser className={`text-2xl ${isScrolled ? " text-secondary " : ` text-${color} `} transition-all duration-300 hover:translate-y-[-2px]  cursor-pointer`} />
+          {/* <FiUser className={`text-2xl ${isScrolled ? " text-secondary " : ` text-${color} `} transition-all duration-300 hover:translate-y-[-2px]  cursor-pointer`} /> */}
         </div>
       </div>
 
@@ -88,9 +88,9 @@ const Navbar = ({color}) => {
         >
           <div className="flex justify-between items-center mb-8">
             {/* Logo in Sidebar */}
-            <div className="text-3xl text-secondary font-bold">
+            <Link href={"/"} className="text-3xl text-secondary font-bold">
            V4L
-            </div>
+            </Link>
             {/* Close Button */}
             <button onClick={toggleMenu} className="text-secondary text-2xl">
               <FiX />

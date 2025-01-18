@@ -36,9 +36,9 @@ const HeroSection = () => {
 
       {/* Overlay Content */}
       <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-60 gap-[30px] flex flex-col px-4 sm:px-8 md:px-12">
-        <p className="text-white mt-[130px] text-sm tracking-wide mb-2">50K+ TRUSTED BUSINESSES</p>
+        <p className="text-white mt-[140px] sm:mt-[130px] text-sm tracking-wide mb-2">50K+ TRUSTED BUSINESSES</p>
         <h1 className="text-white text-4xl sm:text-5xl h1-lineHeight max-w-[400px] sm:max-w-[500px] md:text-6xl md:max-w-[600px]  font-bold mb-4">
-          Make your <span className="italic border px-5 py-2 rounded-full inline-block decoration-white">Finance</span>  more efficient.
+          Make your <span className="italic border px-5 py-2 rounded-full inline-block decoration-white">Finance</span>  <br /> more efficient.
         </h1>
         <p className="text-white text-sm md:text-base max-w-2xl mb-6">
           Until recently, the prevailing view assumed lorem ipsum was born as a nonsense text.
@@ -60,7 +60,7 @@ const HeroSection = () => {
       </div>
 
       {/* Pagination */}
-      <div className="absolute bottom-6 w-full flex flex-col items-center">
+      <div className="absolute bottom-16 sm:bottom-6 w-full flex flex-col items-center">
         <div className="flex space-x-2 mb-2">
           {images.map((_, index) => (
             <div

@@ -21,11 +21,11 @@ export default function Home() {
         <HeroSection />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <StatsSection/>
-        <SponsorAdsBanner
+        {/* <SponsorAdsBanner
         image="/images/home/ads1.jpg"
         link="https://www.sponsor2.com"
         altText="Sponsor 2 Ad"
-      />
+      /> */}
         <TopCampaignList/>
         <RegisteredNGOs/>
         {/* <WhatWeDo/> */}
